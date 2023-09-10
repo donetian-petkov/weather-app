@@ -4,6 +4,11 @@
 }
 
 .city {
-    margin-right: 1em;
+    display: flex;
+    margin: 1em;
     align-items: center;
+}
+
+.condition {
+    margin: 1em;
 }
