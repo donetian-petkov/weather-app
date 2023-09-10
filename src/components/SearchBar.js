@@ -4,12 +4,14 @@ import { fetchCurrentWeather } from "../utils/weatherService";
 import {fetchPlace} from "../utils/cityPickerService";
 
 const SearchBar = () => {
+/*
     const [city, setCity] = useState('');
+*/
     const [input, setInput] = useState('');
     const [suggestions, setSuggestions] = useState([]);
     const dispatch = useDispatch();
 
-    const fetchWeather = async () => {
+    const fetchWeather = async (city) => {
         try {
             const data = await fetchCurrentWeather(city);
             await setSuggestions(data);
@@ -42,8 +44,6 @@ const SearchBar = () => {
 
         const cities = await fetchCity(value);
 
-        console.log(cities.map(city => console.log(city.text)));
-
         await setSuggestions(cities.map(city => city.text));
     };
 
@@ -63,7 +63,7 @@ const SearchBar = () => {
             {suggestions.length > 0 && (
                 <ul>
                     {suggestions.map((suggestion, index) => (
-                        <li key={index} onClick={() => setCity(suggestion)}>
+                        <li key={index} onClick={() => fetchWeather(suggestion)}>
                             {suggestion}
                         </li>
                     ))}
