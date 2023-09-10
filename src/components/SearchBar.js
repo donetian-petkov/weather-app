@@ -45,10 +45,6 @@ const SearchBar = () => {
     };
 
     return (
-        /*<form onSubmit={handleSubmit}>
-            <input type="text" value={city} onChange={(e) => setCity(e.target.value)} />
-            <button type="submit">Search</button>
-        </form>*/
 
         <div className={styles.search}>
             <input

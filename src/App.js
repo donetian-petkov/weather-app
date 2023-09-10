@@ -1,6 +1,5 @@
 import React from 'react';
 import SearchBar from './components/SearchBar';
-import WeatherDisplay from './components/WeatherDisplay';
 import './App.css';
 import {WeatherCard} from "./components/WeatherCard";
 
