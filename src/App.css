@@ -1,5 +1,5 @@
 .app {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: HelveticaNeue-Thin, Helvetica, sans-serif;
   text-align: center;
   background-color: #f2f2f2;
   padding: 20px;
@@ -11,20 +11,6 @@ input[type="text"] {
   font-size: 16px;
   border-radius: 4px;
   border: 1px solid #ccc;
-}
-
-button {
-  padding: 12px 20px;
-  font-size: 16px;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-button:hover {
-  background-color: #0056b3;
 }
 
 ul {

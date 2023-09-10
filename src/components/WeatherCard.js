@@ -8,64 +8,45 @@ export const WeatherCard = () => {
 
     const {data, error} = useSelector((state) => state.weather);
 
-
     if (error) return <p>Error: {error.message}</p>;
-
     const thunderWeather = () => {
-
         const condition = data.current.condition.text.toLowerCase();
 
         if (condition.includes("thunder")) {
-
             return (
-                <FontAwesomeIcon icon={faCloudBolt} shake size="2xl" />
+                <FontAwesomeIcon icon={faCloudBolt} shake size="2xl"/>
             )
-
         }
 
     }
 
     const weatherCondition = () => {
-
         const condition = data.current.condition.text.toLowerCase();
 
         if (condition.includes("rain") || condition.includes("drizzle")) {
-
             return (
-
                 <FontAwesomeIcon icon={faCloudRain} bounce size="2xl"/>
             )
-
         } else if (condition.includes("snow")
             || condition.includes("sleet")
             || condition.includes("ice")
             || condition.includes("blizzard")) {
-
             return (
-
                 <FontAwesomeIcon icon={faSnowflake} spin size="2xl"/>
             )
-
         } else if (condition.includes("mist") || condition.includes("fog")) {
-
             return (
-
                 <FontAwesomeIcon icon={faSmog} fade size="2xl"/>
             )
-
         } else if (condition.includes("cloudy")) {
-
             return (
-
                 <FontAwesomeIcon icon={faCloud} fade size="2xl"/>
             )
-
         } else {
             return (
                 <FontAwesomeIcon icon={faSun} beat size="2xl"/>
             )
         }
-
     }
 
     return (
