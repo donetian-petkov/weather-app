@@ -8,7 +8,7 @@ const SearchBar = () => {
 
     const fetchWeather = async () => {
         try {
-            const data = fetchCity(city);
+            const data = await fetchCity(city);
             dispatch({ type: 'FETCH_WEATHER_SUCCESS', payload: data });
         } catch (error) {
             dispatch({ type: 'FETCH_WEATHER_ERROR', payload: error });

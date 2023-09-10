@@ -1,0 +1,9 @@
+.weather {
+    display: flex;
+    justify-content: center;
+}
+
+.city {
+    margin-right: 1em;
+    align-items: center;
+}
