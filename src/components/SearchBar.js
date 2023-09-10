@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { fetchCurrentWeather } from "../utils/weatherService";
 import {fetchPlace} from "../utils/cityPickerService";
+import styles from './Searchbar.module.css'
+
 
 const SearchBar = () => {
 /*
@@ -21,10 +23,9 @@ const SearchBar = () => {
         }
     };
 
-    const fetchCity = async (text) => {
+    const fetchCities = async (text) => {
         try {
             const result = await fetchPlace(text);
-            console.log(result.features);
             return result.features;
 
         } catch (error) {
@@ -32,17 +33,13 @@ const SearchBar = () => {
         }
     }
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        fetchWeather();
-    };
-
     const handleChange = async (e) => {
+
         const value = e.target.value;
 
         setInput(value);
 
-        const cities = await fetchCity(value);
+        const cities = await fetchCities(value);
 
         await setSuggestions(cities.map(city => city.text));
     };
@@ -53,7 +50,7 @@ const SearchBar = () => {
             <button type="submit">Search</button>
         </form>*/
 
-        <form onSubmit={handleSubmit}>
+        <div className={styles.search}>
             <input
                 type="text"
                 placeholder="Enter a city..."
@@ -61,7 +58,7 @@ const SearchBar = () => {
                 onChange={handleChange}
             />
             {suggestions.length > 0 && (
-                <ul>
+                <ul className={styles.search__suggestions}>
                     {suggestions.map((suggestion, index) => (
                         <li key={index} onClick={() => fetchWeather(suggestion)}>
                             {suggestion}
@@ -69,8 +66,7 @@ const SearchBar = () => {
                     ))}
                 </ul>
             )}
-            <button type="submit">Search</button>
-        </form>
+        </div>
     );
 };
 

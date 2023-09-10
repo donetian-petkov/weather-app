@@ -14,10 +14,10 @@ export const WeatherCard = () => {
         <div>
             {data && (
                 <div className={styles.weather}>
-                    <div className={styles.city}>
+                    <div className={styles.weather__city}>
                         <h2>{data.location.name}</h2>
                     </div>
-                    <div className={styles.condition}>
+                    <div className={styles.weather__condition}>
                         <FontAwesomeIcon icon={faSun} beat size="2xl"/>
                         <p>Temperature: {data.current.temp_c}°C</p>
                         <p>Humidity: {data.current.humidity}%</p>

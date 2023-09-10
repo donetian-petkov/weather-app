@@ -3,12 +3,13 @@
     justify-content: center;
 }
 
-.city {
+.weather__city {
     display: flex;
     margin: 1em;
     align-items: center;
 }
 
-.condition {
+.weather__condition {
     margin: 1em;
 }
+
