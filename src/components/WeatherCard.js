@@ -3,12 +3,19 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faSun, faSmog, faCloudRain, faSnowflake, faCloudBolt, faCloud} from '@fortawesome/free-solid-svg-icons';
 import {useSelector} from "react-redux";
 import styles from './WeatherCard.module.css'
+import toast from "react-hot-toast";
 
 export const WeatherCard = () => {
 
     const {data, error} = useSelector((state) => state.weather);
 
-    if (error) return <p>Error: {error.message}</p>;
+    if (error) {
+        return (
+            <>
+            {toast.error("There were issues with the Weather API")}
+            </>
+        );
+    }
     const thunderWeather = () => {
         const condition = data.current.condition.text.toLowerCase();
 

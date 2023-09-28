@@ -3,12 +3,10 @@ import { useDispatch } from 'react-redux';
 import { fetchCurrentWeather } from "../utils/weatherService";
 import {fetchPlace} from "../utils/cityPickerService";
 import styles from './Searchbar.module.css'
+import toast from "react-hot-toast";
 
 
 const SearchBar = () => {
-/*
-    const [city, setCity] = useState('');
-*/
     const [input, setInput] = useState('');
     const [suggestions, setSuggestions] = useState([]);
     const dispatch = useDispatch();
@@ -29,7 +27,8 @@ const SearchBar = () => {
             return result.features;
 
         } catch (error) {
-            console.log(error);
+            toast.error("Could have not fetched the city API.")
+
         }
     }
 
@@ -41,7 +40,11 @@ const SearchBar = () => {
 
         const cities = await fetchCities(value);
 
-        await setSuggestions(cities.map(city => city.text));
+       try {
+           await setSuggestions(cities.map(city => city.text));
+       } catch {
+           toast.error("Could not fetch the city API.")
+       }
     };
 
     return (

@@ -1,7 +1,5 @@
 const map_api_key=process.env.REACT_APP_MAP_API_KEY;
 
-console.log(process.env.REACT_APP_MAP_API_KEY);
-console.log(process.env.REACT_APP_API_KEY);
 export const fetchPlace = async (text) => {
 
 const response = await fetch(
