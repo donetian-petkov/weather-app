@@ -1,23 +1,52 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {faSun, faSmog, faCloudRain, faSnowflake, faCloudBolt, faCloud} from '@fortawesome/free-solid-svg-icons';
-import {useSelector} from "react-redux";
+import {faSun, faSmog, faCloudRain, faSnowflake, faCloudBolt, faCloud, faMoon} from '@fortawesome/free-solid-svg-icons';
+import {useDispatch, useSelector} from "react-redux";
 import styles from './WeatherCard.module.css'
 import toast from "react-hot-toast";
 
 export const WeatherCard = () => {
 
     const {data, error} = useSelector((state) => state.weather);
+    const dispatch = useDispatch();
+    const condition = data?.current.condition.text.toLowerCase();
+
+    const isDay = data?.current.is_day;
+
+
+    useEffect(() => {
+
+        if (condition) {
+
+            let matchedCondition;
+
+            if (condition.match(/rain|drizzle/i)) {
+                matchedCondition = 'rainy';
+            } else if (condition.match(/snow|sleet|ice|blizzard/i)) {
+                matchedCondition = 'snowy';
+            } else if (condition.match(/mist|fog/i)) {
+                matchedCondition = 'misty';
+            } else if (condition.match(/cloudy/i)) {
+                matchedCondition = 'cloudy';
+            } else if (isDay === 0) {
+                matchedCondition = 'night';
+            } else {
+                matchedCondition = 'sunny';
+            }
+
+            dispatch({type: 'COLOR_CHANGE', payload: matchedCondition});
+        }
+
+    }, [condition]);
 
     if (error) {
         return (
             <>
-            {toast.error("There were issues with the Weather API")}
+                {toast.error("There were issues with the Weather API")}
             </>
         );
     }
     const thunderWeather = () => {
-        const condition = data.current.condition.text.toLowerCase();
 
         if (condition.includes("thunder")) {
             return (
@@ -30,24 +59,25 @@ export const WeatherCard = () => {
     const weatherCondition = () => {
         const condition = data.current.condition.text.toLowerCase();
 
-        if (condition.includes("rain") || condition.includes("drizzle")) {
+        if (condition.match(/rain|drizzle/i)) {
             return (
                 <FontAwesomeIcon icon={faCloudRain} bounce size="2xl"/>
             )
-        } else if (condition.includes("snow")
-            || condition.includes("sleet")
-            || condition.includes("ice")
-            || condition.includes("blizzard")) {
+        } else if (condition.match(/snow|sleet|ice|blizzard/i)) {
             return (
                 <FontAwesomeIcon icon={faSnowflake} spin size="2xl"/>
             )
-        } else if (condition.includes("mist") || condition.includes("fog")) {
+        } else if (condition.match(/mist|fog/i)) {
             return (
                 <FontAwesomeIcon icon={faSmog} fade size="2xl"/>
             )
-        } else if (condition.includes("cloudy")) {
+        } else if (condition.match(/cloudy/i)) {
             return (
                 <FontAwesomeIcon icon={faCloud} fade size="2xl"/>
+            )
+        } else if (isDay === 0) {
+            return (
+                <FontAwesomeIcon icon={faMoon} flip size="2xl" />
             )
         } else {
             return (

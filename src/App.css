@@ -29,3 +29,29 @@ li {
 li:hover {
   background-color: #f0f0f0;
 }
+
+.sunny {
+  background: #FFEA80;
+}
+
+.cloudy {
+  background: #A5ABAF;
+}
+
+.rainy {
+  background: #3943B7;
+  color: white;
+}
+
+.misty {
+  background: #A4BAB7;
+}
+
+.snowy {
+  background: #BBE5ED;
+}
+
+.night {
+  background: #1F2232;
+  color: white;
+}
