@@ -10,9 +10,7 @@ export const WeatherCard = () => {
     const {data, error} = useSelector((state) => state.weather);
     const dispatch = useDispatch();
     const condition = data?.current.condition.text.toLowerCase();
-
     const isDay = data?.current.is_day;
-
 
     useEffect(() => {
 
@@ -20,16 +18,16 @@ export const WeatherCard = () => {
 
             let matchedCondition;
 
-            if (condition.match(/rain|drizzle/i)) {
+            if (isDay === 0) {
+                matchedCondition = 'night';
+            } else if (condition.match(/rain|drizzle/i)) {
                 matchedCondition = 'rainy';
             } else if (condition.match(/snow|sleet|ice|blizzard/i)) {
                 matchedCondition = 'snowy';
             } else if (condition.match(/mist|fog/i)) {
                 matchedCondition = 'misty';
-            } else if (condition.match(/cloudy/i)) {
+            } else if (condition.match(/cloudy|overcast/i)) {
                 matchedCondition = 'cloudy';
-            } else if (isDay === 0) {
-                matchedCondition = 'night';
             } else {
                 matchedCondition = 'sunny';
             }
@@ -37,7 +35,7 @@ export const WeatherCard = () => {
             dispatch({type: 'COLOR_CHANGE', payload: matchedCondition});
         }
 
-    }, [condition]);
+    }, [condition,isDay]);
 
     if (error) {
         return (
@@ -71,7 +69,7 @@ export const WeatherCard = () => {
             return (
                 <FontAwesomeIcon icon={faSmog} fade size="2xl"/>
             )
-        } else if (condition.match(/cloudy/i)) {
+        } else if (condition.match(/cloudy|overcast/i)) {
             return (
                 <FontAwesomeIcon icon={faCloud} fade size="2xl"/>
             )
