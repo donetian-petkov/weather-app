@@ -41,7 +41,7 @@ const SearchBar = () => {
         const cities = await fetchCities(value);
 
        try {
-           await setSuggestions(cities.map(city => city.text));
+           await setSuggestions(cities.map(city => city.place_name));
        } catch {
            toast.error("Could not fetch the city API.")
        }
