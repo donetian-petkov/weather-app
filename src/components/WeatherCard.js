@@ -85,13 +85,13 @@ export const WeatherCard = () => {
     }
 
     return (
-        <div>
+        <>
             {data && (
-                <div className={styles.weather}>
-                    <div className={styles.weather__city}>
+                <section className={styles.weather}>
+                    <article className={styles.weather__city}>
                         <h2>{data.location.name}</h2>
-                    </div>
-                    <div className={styles.weather__condition}>
+                    </article>
+                    <article className={styles.weather__condition}>
                         <div className={styles.weather__condition__icon}>
                             {thunderWeather()} {weatherCondition()}
                         </div>
@@ -99,10 +99,10 @@ export const WeatherCard = () => {
                         <p>Temperature: {data.current.temp_c}°C</p>
                         <p>Humidity: {data.current.humidity}%</p>
                         <p>Condition: {data.current.condition.text}</p>
-                    </div>
-                </div>
+                    </article>
+                </section>
             )}
-        </div>
+        </>
     );
 
 }
