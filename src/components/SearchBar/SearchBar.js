@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { fetchCurrentWeather } from "../utils/weatherService";
-import {fetchPlace} from "../utils/cityPickerService";
+import { fetchCurrentWeather } from "../../utils/weatherService";
+import {fetchPlace} from "../../utils/cityPickerService";
 import styles from './Searchbar.module.css'
 import toast from "react-hot-toast";
 

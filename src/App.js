@@ -1,7 +1,7 @@
 import React from 'react';
-import SearchBar from './components/SearchBar';
+import SearchBar from './components/SearchBar/SearchBar';
 import './App.css';
-import {WeatherCard} from "./components/WeatherCard";
+import {WeatherCard} from "./components/WeatherDisplay/WeatherCard/WeatherCard";
 import {Toaster} from "react-hot-toast";
 import {useSelector} from "react-redux";
 

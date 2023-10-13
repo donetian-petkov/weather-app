@@ -93,10 +93,11 @@ export const WeatherCard = () => {
                     </article>
                     <article className={styles.weather__condition}>
                         <div className={styles.weather__condition__icon}>
-                            {thunderWeather()} {weatherCondition()}
+                            <h2>{data.current.temp_c}°C</h2>
+                            {thunderWeather()}
+                            {weatherCondition()}
                         </div>
                         <p>Current Time: {data.location.localtime}</p>
-                        <p>Temperature: {data.current.temp_c}°C</p>
                         <p>Humidity: {data.current.humidity}%</p>
                         <p>Condition: {data.current.condition.text}</p>
                     </article>
