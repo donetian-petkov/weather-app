@@ -13,7 +13,7 @@ const SearchBar = () => {
 
     const fetchWeather = async (city) => {
         try {
-            const data = await fetchCurrentWeather(city);
+            const data = await fetchCurrentWeather(city,3);
             await setSuggestions(data);
             dispatch({ type: 'FETCH_WEATHER_SUCCESS', payload: data });
         } catch (error) {

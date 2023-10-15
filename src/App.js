@@ -1,9 +1,9 @@
 import React from 'react';
 import SearchBar from './components/SearchBar/SearchBar';
 import './App.css';
-import {WeatherCard} from "./components/WeatherDisplay/WeatherCard/WeatherCard";
 import {Toaster} from "react-hot-toast";
 import {useSelector} from "react-redux";
+import {WeatherDisplay} from "./components/WeatherDisplay/WeatherDisplay";
 
 const App = () => {
 
@@ -15,7 +15,7 @@ const App = () => {
         <div><Toaster/></div>
         <h1>Weather App</h1>
         <SearchBar/>
-        <WeatherCard/>
+        <WeatherDisplay/>
     </div>
 )};
 
