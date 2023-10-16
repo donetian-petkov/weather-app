@@ -13,8 +13,6 @@ export const WeatherDisplay = () => {
 
     const [currentDay, nextDay, theDayAfterNext] = data?.forecast?.forecastday || [];
 
-    console.log(nextDay);
-
     const condition = data?.current.condition.text.toLowerCase();
     const isDay = data?.current.is_day;
 

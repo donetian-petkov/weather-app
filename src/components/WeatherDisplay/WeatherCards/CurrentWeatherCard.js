@@ -7,7 +7,7 @@ export const CurrentWeatherCard = ({data , thunderWeather, weatherCondition} ) =
                 <div className={styles.weather__condition__icon}>
                     <h2>{data.current.temp_c}°C</h2>
                     {thunderWeather(data?.current.condition.text.toLowerCase())}
-                    {weatherCondition(data?.current.condition.text.toLowerCase())}
+                    {weatherCondition(data?.current.condition.text.toLowerCase(),data?.current.is_day)}
                 </div>
                 <p>Date: {data.location.localtime.split(" ")[0]}</p>
                 <p>Current Time: {data.location.localtime.split(" ")[1]}</p>

@@ -30,7 +30,7 @@ export const weatherCondition = (condition, isDay) => {
         return (
             <FontAwesomeIcon icon={faCloud} fade size="2xl"/>
         )
-    } else if (isDay === 0) {
+    } else if (isDay === 0 && condition.match(/clear/i)) {
         return (
             <FontAwesomeIcon icon={faMoon} flip size="2xl"/>
         )
