@@ -52,7 +52,7 @@ export const WeatherDisplay = () => {
             </>
         );
     }
-    const thunderWeather = () => {
+    const thunderWeather = (condition) => {
 
         if (condition.includes("thunder")) {
             return (
@@ -62,8 +62,7 @@ export const WeatherDisplay = () => {
 
     }
 
-    const weatherCondition = () => {
-        const condition = data.current.condition.text.toLowerCase();
+    const weatherCondition = (condition) => {
 
         if (condition.match(/rain|drizzle/i)) {
             return (
@@ -100,7 +99,7 @@ export const WeatherDisplay = () => {
                     <article className={styles.weather__cards}>
                         <article className={styles.weather__cards_currentDay}>
                             <WeatherCard data={data} thunderWeather={thunderWeather}
-                                         weatherCondition={weatherCondition}/>
+                                         weatherCondition={weatherCondition} condition={data?.current.condition.text.toLowerCase()}/>
                         </article>
                         <article className={styles.weather__cards_nextDays}>
                             <WeatherCard data={data} thunderWeather={thunderWeather}
