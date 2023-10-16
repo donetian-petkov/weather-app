@@ -7,6 +7,14 @@
     padding: 0.5em;
 }
 
+.weather__cards article {
+    transition: scale 0.5s ease-in-out;
+}
+
+.weather__cards article:hover {
+    transform: scale(1.05);
+}
+
 @media screen and (max-width: 768px) {
 
     .weather__cards {
