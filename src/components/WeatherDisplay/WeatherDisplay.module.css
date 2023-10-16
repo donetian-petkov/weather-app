@@ -1,6 +1,6 @@
 .weather__cards {
     display: grid;
-    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-columns: 1fr 1.5fr 1fr;
     align-items: center;
     justify-content: center;
 
