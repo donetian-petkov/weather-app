@@ -36,23 +36,21 @@ export const WeatherDisplay = () => {
     return (
         <>
             {data && (
-                <section className={styles.weather}>
-                    <h2>{data?.location.name}</h2>
-                    <article className={styles.weather__cards}>
-                        <article className={styles.weather__cards_nextDays}>
+                    <section className={styles.weather__cards}>
+                        <article className={styles.weather__cards__nextDay}>
                             <NextDayWeatherCard data={nextDay} thunderWeather={thunderWeather}
                                                 weatherCondition={weatherCondition}/>
                         </article>
-                        <article className={styles.weather__cards_currentDay}>
+                        <article className={styles.weather__cards__currentDay}>
                             <CurrentWeatherCard data={data} thunderWeather={thunderWeather}
                                                 weatherCondition={weatherCondition} />
                         </article>
-                        <article className={styles.weather__cards_nextDays}>
+                        <article className={styles.weather__cards__dayAfterNext}>
                             <NextDayWeatherCard data={theDayAfterNext} thunderWeather={thunderWeather}
                                                 weatherCondition={weatherCondition}/>
                         </article>
-                    </article>
-                </section>)}
+                    </section>
+              )}
         </>
     );
 

@@ -1,15 +1,15 @@
-import styles from "./WeatherCard.module.css";
+import styles from "./NextWeatherCard.module.css";
 
 export const NextDayWeatherCard = ({data , thunderWeather, weatherCondition}) => {
 
     return (
-        <div className={styles.weather__condition}>
-            <div className={styles.weather__condition__icon}>
-                <h2>{data.day.avgtemp_c}°C</h2>
+        <div className={styles.card__nextDay}>
+            <div className={styles.card__nextDay__icon}>
                 {thunderWeather(data.day.condition.text.toLowerCase())}
                 {weatherCondition(data.day.condition.text.toLowerCase())}
+                <h2>{data.day.avgtemp_c}°C</h2>
             </div>
-            <p>Date: {data.date}</p>
+            <h3>Date: {data.date}</h3>
             <p>Max Temperature: {data.day.maxtemp_c}°C</p>
             <p>Min Temperature: {data.day.mintemp_c}°C</p>
             <p>Humidity: {data.day.avghumidity}%</p>

@@ -1,18 +1,29 @@
 .weather__cards {
     display: grid;
-    grid-template-columns: 1fr 1.5fr 1fr;
+    grid-template-columns: 1.5fr 2fr 1.5fr;
     align-items: center;
     justify-content: center;
-
-}
-
-.weather__cards article {
     margin: 0.5em;
     padding: 0.5em;
-    font-size: 1.2em;
-    border-radius: 1em;
-    background-color: #fff;
-    color: black;
-    box-shadow: 0 0 0.5em #ccc;
+}
+
+@media screen and (max-width: 768px) {
+
+    .weather__cards {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .weather__cards__currentDay {
+        order: 1;
+    }
+
+    .weather__cards__nextDay {
+        order: 2;
+    }
+
+    .weather__cards__dayAfterNext {
+        order: 3;
+    }
 }
 
