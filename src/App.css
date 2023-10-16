@@ -1,11 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Limelight&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@1,100;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300&display=swap');
+
 
 .app {
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-family: Urbanist, sans-serif;
+  font-family: Josefin Sans, sans-serif;
   text-align: center;
   background-color: #f2f2f2;
   width: 100%;
