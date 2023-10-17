@@ -3,7 +3,7 @@ import {useDispatch, useSelector} from "react-redux";
 import toast from "react-hot-toast";
 import {CurrentWeatherCard} from "./WeatherCards/CurrentWeatherCard";
 import styles from "./WeatherDisplay.module.css";
-import {matchCondition, thunderWeather, weatherCondition} from "../../utils/helpers";
+import {matchCondition, thunderWeather, weatherCondition} from "../../utils/weatherHelperFunctions";
 import {NextDayWeatherCard} from "./WeatherCards/NextDayWeatherCard";
 
 export const WeatherDisplay = () => {
@@ -38,7 +38,7 @@ export const WeatherDisplay = () => {
             {data && (
                     <section className={styles.weather__cards}>
                         <article className={styles.weather__cards__nextDay}>
-                            <NextDayWeatherCard data={nextDay} thunderWeather={thunderWeather}
+                            <NextDayWeatherCard location={data.location.name} data={nextDay} thunderWeather={thunderWeather}
                                                 weatherCondition={weatherCondition}/>
                         </article>
                         <article className={styles.weather__cards__currentDay}>
@@ -46,7 +46,7 @@ export const WeatherDisplay = () => {
                                                 weatherCondition={weatherCondition} />
                         </article>
                         <article className={styles.weather__cards__dayAfterNext}>
-                            <NextDayWeatherCard data={theDayAfterNext} thunderWeather={thunderWeather}
+                            <NextDayWeatherCard location={data.location.name} data={theDayAfterNext} thunderWeather={thunderWeather}
                                                 weatherCondition={weatherCondition}/>
                         </article>
                     </section>

@@ -8,8 +8,8 @@
   font-family: Josefin Sans, sans-serif;
   text-align: center;
   background-color: #f2f2f2;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
 }
 
 input[type="text"] {
@@ -33,6 +33,7 @@ li {
 }
 
 li:hover {
+  color: black;
   background-color: #f0f0f0;
 }
 
@@ -60,4 +61,10 @@ li:hover {
 .night {
   background: #1F2232;
   color: white;
+}
+
+@media screen and (max-width: 768px) {
+
+
+
 }
