@@ -16,6 +16,7 @@ const SearchBar = () => {
             const data = await fetchCurrentWeather(city,3);
             await setSuggestions(data);
             dispatch({ type: 'FETCH_WEATHER_SUCCESS', payload: data });
+            setInput('');
         } catch (error) {
             dispatch({ type: 'FETCH_WEATHER_ERROR', payload: error });
         }
