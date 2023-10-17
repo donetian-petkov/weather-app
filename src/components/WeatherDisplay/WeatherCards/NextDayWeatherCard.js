@@ -9,7 +9,7 @@ export const NextDayWeatherCard = ({location, data , thunderWeather, weatherCond
             key={location}
             initial={{ opacity: 0, y: -100 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}>
+            transition={{ duration: 2 }}>
             <div className={styles.card__nextDay__icon}>
                 {thunderWeather(data.day.condition.text.toLowerCase())}
                 {weatherCondition(data.day.condition.text.toLowerCase())}

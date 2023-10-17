@@ -8,9 +8,9 @@ export const CurrentWeatherCard = ({data , thunderWeather, weatherCondition} ) =
             <motion.div
                 className={styles.currentDay__card}
                 key={data?.location.name}
-                initial={{ opacity: 0, y: -100 }}
+                initial={{ opacity: 0, y: 100 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
+                transition={{ duration: 2 }}
             >
                 <h2>{data?.location.name}</h2>
                 <div className={styles.currentDay__card__icon}>
