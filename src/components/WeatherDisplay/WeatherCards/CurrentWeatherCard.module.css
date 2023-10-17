@@ -6,6 +6,12 @@
     background-color: #fff;
     color: black;
     box-shadow: 0 0 0.5em black;
+    transition: scale 0.5ms ease-in-out;
+}
+
+.currentDay__card:hover {
+    background: black;
+    color: white;
 }
 
 .currentDay__card * {
@@ -19,4 +25,12 @@
     flex-direction: row;
     justify-content: space-evenly;
     align-items: center;
+}
+
+@media screen and (max-width: 768px) {
+    .currentDay__card {
+        margin-top: 0.5em;
+        margin-left: 0;
+        margin-right: 0;
+    }
 }

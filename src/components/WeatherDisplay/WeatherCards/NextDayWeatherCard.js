@@ -5,12 +5,12 @@ export const NextDayWeatherCard = ({location, data , thunderWeather, weatherCond
 
     return (
         <motion.div
-            className={styles.card__nextDay}
+            className={styles.nextDay__card}
             key={location}
             initial={{ opacity: 0, y: -100 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.2 }}>
-            <div className={styles.card__nextDay__icon}>
+            <div className={styles.nextDay__card__icon}>
                 {thunderWeather(data.day.condition.text.toLowerCase())}
                 {weatherCondition(data.day.condition.text.toLowerCase())}
                 <h2>{data.day.avgtemp_c}°C</h2>

@@ -7,11 +7,11 @@ import {WeatherDisplay} from "./components/WeatherDisplay/WeatherDisplay";
 
 const App = () => {
 
-    const data = useSelector((state) => state.colour);
+    const backgroundColor = useSelector((state) => state.colour);
 
     return (
 
-    <div className={`${data} app`}>
+    <div className={`${backgroundColor} app`}>
         <div><Toaster/></div>
         <h1>Weather App</h1>
         <SearchBar/>

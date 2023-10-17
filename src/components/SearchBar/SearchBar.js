@@ -7,8 +7,13 @@ import toast from "react-hot-toast";
 
 
 const SearchBar = () => {
+    // the state of the value for the input field
     const [input, setInput] = useState('');
+
+    // the state for the suggestions displayed when you start typing
     const [suggestions, setSuggestions] = useState([]);
+
+    // the dispatch function to dispatch actions to the store
     const dispatch = useDispatch();
 
     const fetchWeather = async (city) => {
@@ -39,9 +44,9 @@ const SearchBar = () => {
 
         setInput(value);
 
-        const cities = await fetchCities(value);
-
        try {
+           const cities = await fetchCities(value);
+
            await setSuggestions(cities.map(city => city.place_name));
        } catch {
            toast.error("Could not fetch the city API.")
