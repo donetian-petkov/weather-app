@@ -23,14 +23,20 @@ export const WeatherDisplay = () => {
 
     }, [condition, isDay]);
 
-    if (error) {
+    useEffect(() => {
+        if (error) {
+            toast.error(error.message);
+        }
+    }, [error]);
+
+   /* if (error) {
 
         return (
             <>
-                {toast.error("There were issues with the Weather API")}
+                {toast.error(error.message)}
             </>
         );
-    }
+    }*/
 
     return (
         <>

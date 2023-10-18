@@ -4,6 +4,7 @@ import { fetchCurrentWeather } from "../../utils/weatherService";
 import {fetchPlace} from "../../utils/cityPickerService";
 import styles from './Searchbar.module.css'
 import toast from "react-hot-toast";
+import {clearWeatherError, fetchWeatherError, fetchWeatherSuccess} from "../../actions/actions";
 
 
 const SearchBar = () => {
@@ -18,19 +19,20 @@ const SearchBar = () => {
 
     const fetchWeather = async (city) => {
         try {
+            dispatch(clearWeatherError());
+
             const data = await fetchCurrentWeather(city,3);
 
             if (data?.location?.name) {
-                await setSuggestions(data);
-                dispatch({type: 'FETCH_WEATHER_SUCCESS', payload: data});
+                setSuggestions(data);
+                dispatch(fetchWeatherSuccess(data));
                 setInput('');
             } else {
-                toast.error("Could not find a city with that name.");
-                setInput('');
-            }
+                setInput('')
+                throw new Error("Could not find a city with that name.");            }
 
         } catch (error) {
-            dispatch({ type: 'FETCH_WEATHER_ERROR', payload: error });
+            dispatch(fetchWeatherError(error));
         }
     };
 
