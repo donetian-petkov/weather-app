@@ -19,9 +19,15 @@ const SearchBar = () => {
     const fetchWeather = async (city) => {
         try {
             const data = await fetchCurrentWeather(city,3);
-            await setSuggestions(data);
-            dispatch({ type: 'FETCH_WEATHER_SUCCESS', payload: data });
-            setInput('');
+
+            if (data?.location?.name !== undefined) {
+                await setSuggestions(data);
+                dispatch({type: 'FETCH_WEATHER_SUCCESS', payload: data});
+                setInput('');
+            } else {
+                toast.error("Could not find a city with that name.")
+            }
+
         } catch (error) {
             dispatch({ type: 'FETCH_WEATHER_ERROR', payload: error });
         }
@@ -53,6 +59,17 @@ const SearchBar = () => {
        }
     };
 
+    const handleKeyPress = async (event) => {
+
+        if (event.key === 'Enter') {
+
+            await fetchWeather(input);
+
+            event.preventDefault();  // Prevents the default behavior of submitting the form
+        }
+    };
+
+
     return (
 
         <div className={styles.search}>
@@ -61,6 +78,7 @@ const SearchBar = () => {
                 placeholder="Enter a city..."
                 value={input}
                 onChange={handleChange}
+                onKeyPress={handleKeyPress}
             />
             {suggestions.length > 0 && (
                 <ul className={styles.search__suggestions}>

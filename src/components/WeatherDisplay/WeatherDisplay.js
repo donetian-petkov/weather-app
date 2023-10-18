@@ -10,11 +10,9 @@ export const WeatherDisplay = () => {
 
     const {data, error} = useSelector((state) => state.weather);
     const dispatch = useDispatch();
-
+    const condition = data?.current?.condition?.text?.toLowerCase();
+    const isDay = data?.current?.is_day;
     const [currentDay, nextDay, theDayAfterNext] = data?.forecast?.forecastday || [];
-
-    const condition = data?.current.condition.text.toLowerCase();
-    const isDay = data?.current.is_day;
 
     useEffect(() => {
 
@@ -26,6 +24,7 @@ export const WeatherDisplay = () => {
     }, [condition, isDay]);
 
     if (error) {
+
         return (
             <>
                 {toast.error("There were issues with the Weather API")}
