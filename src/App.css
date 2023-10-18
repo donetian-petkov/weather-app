@@ -5,6 +5,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow: overlay;
   font-family: Josefin Sans, sans-serif;
   text-align: center;
   background-color: #f2f2f2;
