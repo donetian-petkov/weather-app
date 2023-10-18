@@ -29,15 +29,6 @@ export const WeatherDisplay = () => {
         }
     }, [error]);
 
-   /* if (error) {
-
-        return (
-            <>
-                {toast.error(error.message)}
-            </>
-        );
-    }*/
-
     return (
         <>
             {data && (
