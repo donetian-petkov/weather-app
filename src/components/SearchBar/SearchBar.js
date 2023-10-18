@@ -20,12 +20,13 @@ const SearchBar = () => {
         try {
             const data = await fetchCurrentWeather(city,3);
 
-            if (data?.location?.name !== undefined) {
+            if (data?.location?.name) {
                 await setSuggestions(data);
                 dispatch({type: 'FETCH_WEATHER_SUCCESS', payload: data});
                 setInput('');
             } else {
-                toast.error("Could not find a city with that name.")
+                toast.error("Could not find a city with that name.");
+                setInput('');
             }
 
         } catch (error) {
