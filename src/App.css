@@ -1,18 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300&display=swap');
+
+
 .app {
-  font-family: HelveticaNeue-Thin, Helvetica, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: overlay;
+  font-family: Josefin Sans, sans-serif;
   text-align: center;
   background-color: #f2f2f2;
-  padding: 20px;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
+
 }
 
 input[type="text"] {
-  padding: 10px;
-  margin: 10px;
-  font-size: 16px;
-  border-radius: 4px;
+  font-size: 1.2em;
+  border-radius: 0.2em;
   border: 1px solid #ccc;
+  box-shadow: 0 0 1em black;
 }
 
 ul {
@@ -29,6 +35,7 @@ li {
 }
 
 li:hover {
+  color: black;
   background-color: #f0f0f0;
 }
 
@@ -56,4 +63,10 @@ li:hover {
 .night {
   background: #1F2232;
   color: white;
+}
+
+@media screen and (max-width: 768px) {
+
+
+
 }
