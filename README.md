@@ -1,12 +1,14 @@
 # Weather App 
 
-A website, which uses a weather API to get the current weather conditions in a particular place or a city. It uses Redux for the state management of the results from the said API and the weather condition.
+A website, which uses a weather API to get the current weather conditions in a particular place or a city and a forecast for the next two days. 
 
-Based on the condition the background color is changed. Also, I have accounted if the weather is clear and it is night.
+It uses Redux for the state management of the results from the said API and the weather condition.
+
+Based on the condition the background color is changed. Also, I have accounted if the weather is clear and if it is night.
 
 I am using the MapBox API to provide a dropdown list of city suggestions based on what the user is typing in the search box on the site. 
 
-Finally, there is a Toast notifications in case the site can not connect to either API's.
+Finally, there is a Toast notifications in case the site can not connect to either API's or the city can not be found.
 
 ## Installation
 
