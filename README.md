@@ -22,6 +22,10 @@ REACT_APP_MAP_API_KEY=*******
 
 3. In the project directory run: npm start
 
+## Usage: 
+
+Enter the city for which you want to know its weather in the search field. You may either hit Enter if you have are certain about the name of the city or choose the city from the dropdown menu. You will receive the information for the current weather in the city and the forecast for the next two days. If the city is not found you will receive a prompt. 
+
 ## Live Preview: 
 
 https://weatherapp.donetianpetkov.com/
