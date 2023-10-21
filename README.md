@@ -24,7 +24,7 @@ REACT_APP_MAP_API_KEY=*******
 
 ## Usage: 
 
-Enter the city for which you want to know its weather in the search field. You may either hit Enter if you have are certain about the name of the city or choose the city from the dropdown menu. You will receive the information for the current weather in the city and the forecast for the next two days. If the city is not found you will receive a prompt. 
+Enter the desired city in the search field. You may either hit Enter if you are certain about the name of the city or choose it from the dropdown suggestions. You will receive the information for the current weather in the city and the forecast for the next two days. If the city is not found you will receive a prompt. 
 
 ## Live Preview: 
 
